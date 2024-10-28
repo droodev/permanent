@@ -6,7 +6,7 @@ on:
 
 env:
   WHL_HOUSE: wheelhouse
-  MAPEL_EL_ARTS: mapel-election-artifacts
+  COMPILED_ARTS: compiled-artifacts
   
 permissions:
   contents: read
@@ -34,7 +34,7 @@ jobs:
     - name: Artifactize sdist
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ env.MAPEL_EL_ARTS }}
+        name: ${{ env.COMPILED_ARTS }}
         path: ${{ env.WHL_HOUSE }} 
 
   build-compiled-python-wheels:
@@ -53,11 +53,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Build mapof-elections wheels
+      - name: Build permanentbis wheels
         uses: pypa/cibuildwheel@v2.20.0
         env:
           # We skip old versions of cPython, and all PyPy
-          # because the C++ extension is incompatible with PyPy
+          # because we're not sure the C extension works on PyPy
           CIBW_SKIP: "cp36-* cp37-* cp38-* cp39-* pp*"
           CIBW_BUILD_FRONTEND: "build"
         with:
@@ -65,10 +65,10 @@ jobs:
       - name: Artifactize compiled-python wheels
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.MAPEL_EL_ARTS }}-${{ matrix.os }}
+          name: ${{ env.COMPILED_ARTS }}-${{ matrix.os }}
           path: ${{ env.WHL_HOUSE }}
 
-  test-pypi-update:
+  pypi-update:
     needs: [build-compiled-python-wheels, build-sdist]
     name: Publish to PyPI
     environment: pypi-upload

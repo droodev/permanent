@@ -7,8 +7,9 @@ introduces an incompatible to previous versions ways of handling complex
 numbers in the C interface.
 
 A suggested fix has been proposed as [pull
-request](https://github.com/peteshadbolt/permanent/pull/2), but was so far
-not accepted. This is the reason why this fork is published on PyPi.
+request](https://github.com/peteshadbolt/permanent/pull/2), and was
+recently accepted (to a bit too big extend). The main intention
+of this fork is to provide a multiarchitecture packaged distribution on PyPi.
 
 The remaining part of the readme just repeats the original pacakge description.
 

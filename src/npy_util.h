@@ -1,14 +1,18 @@
-#include <complex.h> 
-
 // Array access macros.
 #define SM(x0, x1) (*(npy_complex128*)(((char*)PyArray_DATA(submatrix) + \
                     (x0) * PyArray_STRIDES(submatrix)[0] +  \
                     (x1) * PyArray_STRIDES(submatrix)[1])))
 #define SM_shape(x0) (int) PyArray_DIM(submatrix, x0)
 
-// Complex numbers
+#if defined(_MSC_VER) && !defined(__INTEL_COMPILER)
+static const npy_complex128 complex_one = {1.0f, 0.0f};
+static const npy_complex128 complex_zero = {1.0f, 0.0f};
+#else /* !defined(_MSC_VER) || defined(__INTEL_COMPILER) */
 static const npy_complex128 complex_one = 1 + 0 * I;
 static const npy_complex128 complex_zero = 0 + 0 * I;
+#endif
+
+// Complex numbers
 
 // Add two numbers
 npy_complex128 complex_add(npy_complex128 a, npy_complex128 b) { 

@@ -4,12 +4,12 @@
                     (x1) * PyArray_STRIDES(submatrix)[1])))
 #define SM_shape(x0) (int) PyArray_DIM(submatrix, x0)
 
-#if defined(_MSC_VER) && !defined(__INTEL_COMPILER)
-static const npy_complex128 complex_one = {1.0f, 0.0f};
-static const npy_complex128 complex_zero = {1.0f, 0.0f};
-#else /* !defined(_MSC_VER) || defined(__INTEL_COMPILER) */
-static const npy_complex128 complex_one = 1 + 0 * I;
-static const npy_complex128 complex_zero = 0 + 0 * I;
+#if defined(_MSC_VER)
+  static const npy_complex128 complex_one = {1.0f, 0.0f};
+  static const npy_complex128 complex_zero = {1.0f, 0.0f};
+#else /* !defined(_MSC_VER) */
+  static const npy_complex128 complex_one = 1 + 0 * I;
+  static const npy_complex128 complex_zero = 0 + 0 * I;
 #endif
 
 // Complex numbers

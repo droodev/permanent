@@ -1,3 +1,5 @@
+#include <complex.h> 
+
 // Array access macros.
 #define SM(x0, x1) (*(npy_complex128*)(((char*)PyArray_DATA(submatrix) + \
                     (x0) * PyArray_STRIDES(submatrix)[0] +  \

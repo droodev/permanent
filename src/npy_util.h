@@ -17,7 +17,7 @@
 // Add two numbers
 npy_complex128 complex_add(npy_complex128 a, npy_complex128 b) { 
     #if defined(_MSC_VER)
-      npy_complex128 tmp = {creal(*a) + creal(b), cimag(*a) + cimag(b)};
+      npy_complex128 tmp = {creal(a) + creal(b), cimag(a) + cimag(b)};
       return tmp; 
     #else /* !defined(_MSC_VER) */
       return a+b;
@@ -46,8 +46,8 @@ npy_complex128 complex_float_prod(npy_complex128 a, float b) {
 void complex_inc(npy_complex128 *a, npy_complex128 b) { 
     #if defined(_MSC_VER)
       npy_complex128 tmp = {creal(*a) + creal(b), cimag(*a) + cimag(b)};
-      npy_csetreal(a, creal(tmp));
-      npy_csetimag(a, cimag(tmp));
+      (*a)[0] = creal(tmp);
+      (*a)[1] = cimag(tmp);
       return; 
     #else /* !defined(_MSC_VER) */
       *a *= b;
@@ -58,9 +58,9 @@ void complex_inc(npy_complex128 *a, npy_complex128 b) {
 // Multipy a number by another one
 void complex_multiply(npy_complex128 *a, npy_complex128 b) { 
     #if defined(_MSC_VER)
-      npy_complex128 tmp = _Cmulcc(a, b);
-      npy_csetreal(a, creal(tmp));
-      npy_csetimag(a, cimag(tmp));
+      npy_complex128 tmp = _Cmulcc(*a, b);
+      (*a)[0] = creal(tmp);
+      (*a)[1] = cimag(tmp);
       return ; 
     #else /* !defined(_MSC_VER) */
       *a *= b;

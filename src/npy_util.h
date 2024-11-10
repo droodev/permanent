@@ -46,8 +46,8 @@ npy_complex128 complex_float_prod(npy_complex128 a, float b) {
 void complex_inc(npy_complex128 *a, npy_complex128 b) { 
     #if defined(_MSC_VER)
       npy_complex128 tmp = {creal(*a) + creal(b), cimag(*a) + cimag(b)};
-      (*a)[0] = creal(tmp);
-      (*a)[1] = cimag(tmp);
+      ((double *)a)[0] = creal(tmp);
+      ((double *)a)[1] = cimag(tmp);
       return; 
     #else /* !defined(_MSC_VER) */
       *a *= b;
@@ -59,8 +59,8 @@ void complex_inc(npy_complex128 *a, npy_complex128 b) {
 void complex_multiply(npy_complex128 *a, npy_complex128 b) { 
     #if defined(_MSC_VER)
       npy_complex128 tmp = _Cmulcc(*a, b);
-      (*a)[0] = creal(tmp);
-      (*a)[1] = cimag(tmp);
+      ((double *)a)[0] = creal(tmp);
+      ((double *)a)[1] = cimag(tmp);
       return ; 
     #else /* !defined(_MSC_VER) */
       *a *= b;

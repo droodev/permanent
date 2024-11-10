@@ -20,7 +20,7 @@ npy_complex128 complex_add(npy_complex128 a, npy_complex128 b) {
       npy_complex128 tmp = {creal(*a) + creal(b), cimag(*a) + cimag(b)};
       return tmp; 
     #else /* !defined(_MSC_VER) */
-      retunr a+b;
+      return a+b;
     #endif
 }
 

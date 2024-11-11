@@ -20,7 +20,7 @@ Implements Ryser's algorithm for the [permanent](https://en.wikipedia.org/wiki/P
 
 Install:
 ```bash
-$ pip install permanent
+$ pip install permanentbis
 ```
 Use:
 ```python

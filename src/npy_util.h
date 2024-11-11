@@ -50,7 +50,7 @@ void complex_inc(npy_complex128 *a, npy_complex128 b) {
       ((double *)a)[1] = cimag(tmp);
       return; 
     #else /* !defined(_MSC_VER) */
-      *a *= b;
+      *a += b;
     #endif
     return;
 }

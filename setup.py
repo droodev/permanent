@@ -6,7 +6,7 @@ import numpy
 setup(
     ext_modules=[
         Extension(
-            'permanentbis.permanent', ['./src/permanent.c'],
+            'permanentbis', ['./src/permanent.c'],
             extra_compile_args=["-Ofast", "-march=native"],
             include_dirs=[numpy.get_include()]),
     ],

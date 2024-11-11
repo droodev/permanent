@@ -10,7 +10,7 @@ static PyObject *permanent(PyObject *self, PyObject *args);
 
 // Method list
 static PyMethodDef methods[] = {                                
-  { "permanentbis", permanent, METH_VARARGS, "Computes the permanent of a numpy using the most appropriate method available"},
+  { "permanent", permanent, METH_VARARGS, "Computes the permanent of a numpy using the most appropriate method available"},
   { NULL, NULL, 0, NULL } // Sentinel
 };
 
@@ -18,17 +18,17 @@ static PyMethodDef methods[] = {
 #if PY_MAJOR_VERSION >= 3
 static struct PyModuleDef cModPyDem =
 {
-    PyModuleDef_HEAD_INIT,
-    "permanentbis", "Computes the permanent of a numpy using the most appropriate method available",
-    -1,
-    methods
+  PyModuleDef_HEAD_INIT,
+  "permanentbis", "Computes the permanent of a numpy using the most appropriate method available",
+  -1,
+  methods
 };
 
 PyMODINIT_FUNC
-PyInit_permanent(void)
+PyInit_permanentbis(void)
 {
-    import_array();
-    return PyModule_Create(&cModPyDem);
+  import_array();
+  return PyModule_Create(&cModPyDem);
 }
 
 #else

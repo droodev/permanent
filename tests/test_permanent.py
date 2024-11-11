@@ -1,11 +1,12 @@
 import numpy as np
-from permanentbis.permanent import permanent
+from permanentbis import permanent
 import pytest
 
 
 def test_permanent():
     """ Test that basic functions work right """
     m = np.eye(10, dtype=complex)
+    print(permanent(m))
     assert permanent(m) == 1
     m = np.zeros((10, 10), dtype=complex)
     assert permanent(m) == 0

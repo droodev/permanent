@@ -25,7 +25,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
-   - name: Install crucial dependencies
+    - name: Install crucial dependencies
       run: |
         python -m ensurepip --upgrade
         python -m pip install --upgrade setuptools

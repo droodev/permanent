@@ -8,8 +8,9 @@ numbers in the C interface.
 
 A suggested fix has been proposed as [pull
 request](https://github.com/peteshadbolt/permanent/pull/2), and was
-recently accepted (to a bit too big extend). The main intention
-of this fork is to provide a multiarchitecture packaged distribution on PyPi.
+recently accepted (to a bit too big extent). The main intention
+of this fork is to provide a multiarchitecture packaged distribution on PyPi
+and to support numpy 2.x.x.
 
 The remaining part of the readme just repeats the original pacakge description.
 

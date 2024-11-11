@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "permanentbis"
-version = "0.1.0beta1"
+version = "0.1.0"
 authors = [
- {name = "Pete Shadbolt", email = "s.szufa@gmail.com"},
+ {name = "Pete Shadbolt", email = "hello@peteshadbolt.co.uk"},
  {name = "Andrzej Kaczmarczyk", email = "droodev@gmail.com"}
 ]
 maintainers = [

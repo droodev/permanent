@@ -1,11 +1,8 @@
 name: Package to PyPi
 
-#on:
-#  release:
-#    types: [published]
-
-    
-on: workflow_dispatch
+on:
+  release:
+    types: [published]
 
 env:
   WHL_HOUSE: wheelhouse
@@ -89,8 +86,8 @@ jobs:
       - name: Display all artifacts
         run: ls -R
         working-directory: ${{ env.WHL_HOUSE }}
-      #- name: Publish package to PyPI
-      #  uses: pypa/gh-action-pypi-publish@release/v1
-      #  with:
-       #   packages-dir: ${{ env.WHL_HOUSE }}/
-       #   verbose: true
+      - name: Publish package to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: ${{ env.WHL_HOUSE }}/
+          verbose: true

@@ -7,7 +7,7 @@ setup(
     ext_modules=[
         Extension(
             'permanentbis', ['./src/permanent.c'],
-            extra_compile_args=["-Ofast", "-march=native"],
+            extra_compile_args=["-Ofast"],
             include_dirs=[numpy.get_include()]),
     ],
 )
